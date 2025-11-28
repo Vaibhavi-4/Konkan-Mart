@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Konkan Mart — Authentic Konkan Flavours</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="#">
+          <img src="images/konkan-logo.png" alt="Konkan Mart" class="logo-img" />
+          <span class="brand">Konkan Mart</span>
+        </a>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="utils">
+        <button class="search-btn" aria-label="Search">🔍</button>
+        <button class="cart-btn" aria-label="Cart">🛒 <span class="cart-count">0</span></button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Bring the Taste of Konkan to Your Home</h1>
+        <p class="lead">
+          From juicy Alphonso mangoes and tangy kokum, to fresh coconuts and handcrafted Sawantwadi toys — authentic flavours and crafts from the Konkan coast.
+        </p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn primary">Shop Now</a>
+          <a href="#about" class="btn ghost">Learn More</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="images/mango-basket.jpg" alt="Alphonso mangoes" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Our Konkan Roots</h2>
+        <p>
+          Konkan Mart is a small family-run business celebrating coastal flavours and crafts. We source directly from growers and artisans — Ratnagiri Alphonso mango farmers, kokum processors, coconut harvesters, and Sawantwadi toy makers.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="images/coconut-palm.jpg" alt="Coconut trees in Konkan" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="shop" class="products container">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="product-grid">
+      <article class="card">
+        <img src="images/mango.jpg" alt="Alphonso Mangoes" />
+        <div class="card-body">
+          <h3>Alphonso Mangoes</h3>
+          <p>Juicy Hapus (Alphonso) mangoes — seasonal, aromatic and rich.</p>
+          <div class="card-footer">
+            <span class="price">₹399 / kg</span>
+            <button class="btn small buy" data-name="Alphonso Mangoes">Buy Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/kokum.jpg" alt="Kokum" />
+        <div class="card-body">
+          <h3>Kokum Syrup</h3>
+          <p>Refreshing kokum concentrate — perfect for sherbets and cooking.</p>
+          <div class="card-footer">
+            <span class="price">₹199</span>
+            <button class="btn small buy" data-name="Kokum Syrup">Buy Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/coconut-product.jpg" alt="Coconut Products" />
+        <div class="card-body">
+          <h3>Coconut Goodies</h3>
+          <p>Fresh coconut water, oil and traditional coconut sweets.</p>
+          <div class="card-footer">
+            <span class="price">₹149</span>
+            <button class="btn small buy" data-name="Coconut Products">Buy Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/sawantwadi-toy.jpg" alt="Sawantwadi wooden toy" />
+        <div class="card-body">
+          <h3>Sawantwadi Toys</h3>
+          <p>Handcrafted, painted wooden toys — a Konkan craft heritage.</p>
+          <div class="card-footer">
+            <span class="price">₹499</span>
+            <button class="btn small buy" data-name="Sawantwadi Wooden Toys">Buy Now</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>Konkan Mart</h4>
+        <p>Authentic produce & crafts from the Konkan coast.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Email: hello@konkanmart.example</p>
+        <p>Phone: +91 9XXXXXXXXX</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="socials">🌐 Instagram • Facebook • X</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© <span id="year"></span> Konkan Mart — All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
