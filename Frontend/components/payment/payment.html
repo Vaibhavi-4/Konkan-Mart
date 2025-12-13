@@ -1,0 +1,249 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konkan Mart — Payment</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .upi-box {
+      border: 2px dashed #ff7b00;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff7b00;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e36d00;
+    }
+
+    .preview-img {
+      width: 100%;
+      margin-top: 10px;
+      display: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Complete Your Payment</h2>
+
+    <div class="upi-box">
+      <h3>Scan & Pay</h3>
+      <img src="your_upi_qr.png" width="200" alt="UPI QR"><br>
+      <p><b>UPI ID:</b> konkanmart@upi</p>
+    </div>
+
+    <label><b>Order ID</b></label>
+    <input type="text" id="orderId" placeholder="Enter Order ID">
+
+    <label><b>Upload Payment Screenshot</b></label>
+    <input type="file" id="screenshot" accept="image/*">
+
+    <img id="preview" class="preview-img">
+
+    <button onclick="submitPayment()">Submit Payment</button>
+  </div>
+<form id="paymentForm">
+  <input type="text" id="orderId" placeholder="Order ID">
+  <input type="file" id="screenshot" accept="image/*">
+  <button type="submit">Submit Payment</button>
+</form>
+
+  <script>
+    const fileInput = document.getElementById("screenshot");
+    const preview = document.getElementById("preview");
+
+    // Preview Screenshot
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = "block";
+    });
+
+    function submitPayment() {
+      const id = document.getElementById("orderId").value;
+
+      if (!id) {
+        alert("Please enter order ID");
+        return;
+      }
+
+      if (!fileInput.files.length) {
+        alert("Please upload payment screenshot");
+        return;
+      }
+
+      alert("Payment uploaded successfully! Admin will verify.");
+      // Here you send data to backend → /api/payment
+    }
+
+    document.getElementById('paymentForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const orderId = document.getElementById('orderId').value.trim();
+  const file = document.getElementById('screenshot').files[0];
+  if (!orderId || !file) { alert('Enter order id and upload screenshot'); return; }
+  const form = new FormData();
+  form.append('screenshot', file);
+  try {
+    const res = await fetch(`http://localhost:4000/api/payment/${orderId}`, { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok) throw data;
+    alert(data.message);
+  } catch (err) {
+    alert(err.error || 'Upload failed');
+  }
+});
+  </script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konkan Mart — Payment</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .container {
+      max-width: 480px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff7b00;
+      color: white;
+      font-size: 17px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .preview-img {
+      width: 100%;
+      margin-top: 10px;
+      display: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Complete Your Payment</h2>
+
+  <label>Order ID</label>
+  <input type="text" id="orderId" placeholder="Enter Order ID">
+
+  <label>Upload Payment Screenshot</label>
+  <input type="file" id="screenshot" accept="image/*">
+
+  <img id="preview" class="preview-img" />
+
+  <button onclick="submitPayment()">Submit Payment</button>
+</div>
+
+<script>
+  const preview = document.getElementById("preview");
+  const fileInput = document.getElementById("screenshot");
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  });
+
+  function submitPayment() {
+    const orderId = document.getElementById("orderId").value.trim();
+    const file = fileInput.files[0];
+
+    if (!orderId) return alert("Enter Order ID");
+    if (!file) return alert("Upload screenshot");
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const screenshotData = e.target.result;
+
+      const paymentData = {
+        orderId,
+        screenshot: screenshotData,
+        status: "Pending"
+      };
+
+      localStorage.setItem(orderId, JSON.stringify(paymentData));
+      alert("Payment uploaded successfully!");
+    };
+
+    reader.readAsDataURL(file);
+  }
+</script>
+
+</body>
+</html>
+

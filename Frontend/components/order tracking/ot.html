@@ -1,0 +1,197 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konkan Mart — Track Order</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff7b00;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff7b00;
+      border: none;
+      margin-top: 15px;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e36d00;
+    }
+
+    .status-box {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f1f1f1;
+      display: none;
+    }
+
+    .stage {
+      padding: 12px;
+      margin: 10px 0;
+      border-left: 6px solid #ccc;
+      background: #fff;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .active {
+      border-left: 6px solid #ff7b00;
+      background: #ffe8d6;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>Track Your Order</h2>
+
+    <input type="text" id="orderInput" placeholder="Enter Order ID">
+
+    <button onclick="trackOrder()">Check Status</button>
+
+    <div class="status-box" id="statusBox">
+      <h3>Order Status</h3>
+
+      <div class="stage" id="s1">📦 Order Placed</div>
+      <div class="stage" id="s2">💰 Payment Verified</div>
+      <div class="stage" id="s3">🛒 Order Packed</div>
+      <div class="stage" id="s4">🚚 Out for Delivery</div>
+      <div class="stage" id="s5">✔ Delivered</div>
+    </div>
+  </div>
+
+
+  <script>
+    function trackOrder() {
+      const orderId = document.getElementById("orderInput").value.trim();
+
+      if (!orderId) {
+        alert("Please enter a valid Order ID");
+        return;
+      }
+
+      // Dummy simulated order status (replace later with backend API)
+      const fakeOrderStatus = 3;
+
+      const statusBox = document.getElementById("statusBox");
+      statusBox.style.display = "block";
+
+      // Reset old highlights
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById(`s${i}`).classList.remove("active");
+      }
+
+      // Highlight current stage
+      for (let i = 1; i <= fakeOrderStatus; i++) {
+        document.getElementById(`s${i}`).classList.add("active");
+      }
+    }
+  </script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Tracking</title>
+  <style>
+    body { font-family: Arial; background: #f0f0f0; }
+    .box {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Track Your Order</h2>
+  <input type="text" id="trackId" placeholder="Enter Order ID">
+  <button onclick="trackOrder()">Track</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+function trackOrder() {
+  const id = document.getElementById("trackId").value.trim();
+  const data = JSON.parse(localStorage.getItem(id));
+
+  if (!data) {
+    document.getElementById("result").innerHTML = "<p>No order found.</p>";
+    return;
+  }
+
+  document.getElementById("result").innerHTML = `
+    <h3>Order ID: ${data.orderId}</h3>
+    <p>Status: <b>${data.status}</b></p>
+    <img src="${data.screenshot}" />
+  `;
+}
+</script>
+
+</body>
+</html>
