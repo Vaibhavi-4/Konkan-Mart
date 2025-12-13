@@ -1,130 +1,230 @@
-:root{
-  --bg:#fff8f0;
-  --accent:#f39c12; /* konkan orange */
-  --accent-dark:#d97706;
-  --green:#1f6f4b;   /* coconut/leaf green */
-  --muted:#6b7280;
-  --card:#ffffff;
-  --glass: rgba(255,255,255,0.8);
-  --radius:14px;
-  --container: 1150px;
-  font-synthesis: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #fafafa;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,#fffefb 0%,var(--bg) 100%);
-  color:#0f172a;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e63946;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links li a {
+  font-size: 1rem;
+  padding: 5px 0;
+  color: #333;
+}
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+  color: #333;
 }
 
-/* container */
-.container{
-  width:90%;
-  max-width:var(--container);
-  margin:0 auto;
-  padding:2rem 0;
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  padding: 30px 20px 40px;
+  background-color: #fff;
 }
 
-/* Header */
-.site-header{
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  position:sticky;
-  top:0;
-  z-index:50;
-  box-shadow:0 1px 8px rgba(16,24,40,0.04);
-  backdrop-filter: blur(6px);
+.intro h3 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 }
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  padding:1rem 0;
+
+.intro p {
+  font-size: 1.05rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
-.logo a{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit}
-.logo-img{width:44px;height:44px;object-fit:contain;border-radius:8px}
-.brand{font-weight:700;font-family:"Playfair Display";color:var(--accent-dark)}
 
-.nav-list{display:flex;gap:1.25rem;list-style:none;padding:0;margin:0}
-.nav-list a{text-decoration:none;color:var(--muted);font-weight:600}
-.nav-list a:hover{color:var(--green)}
-
-.utils{display:flex;align-items:center;gap:.6rem}
-.menu-toggle{display:none;background:none;border:0;font-size:1.15rem}
-
-/* HERO */
-.hero{
-  position:relative;
-  padding:3.5rem 0;
-  overflow:hidden;
-  min-height:520px;
-  display:flex;
-  align-items:center;
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://tripwyz.ai/content/images/2024/11/places-to-visit-in-konkan.jpg') center/cover no-repeat;
+  padding-top: 60px;
 }
-.hero-overlay{
-  position:absolute;inset:0;
-  background: linear-gradient(90deg, rgba(255,244,230,0.9), rgba(255,255,255,0.6));
-  pointer-events:none;
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #000;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
 }
-.hero-inner{display:flex;gap:2rem;align-items:center;justify-content:space-between}
-.hero-text{flex:1;max-width:720px}
-.hero-text h1{font-family:"Playfair Display";font-size:3rem;margin:0 0 .8rem;color:#14303a}
-.lead{color:var(--muted);font-size:1.05rem;margin-bottom:1.25rem}
-.hero-cta .btn{margin-right:.6rem}
 
-.btn{
-  display:inline-block;padding:.6rem 1.1rem;border-radius:10px;text-decoration:none;font-weight:700;border:0;
-  cursor:pointer;
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
 }
-.btn.primary{background:var(--accent);color:white;box-shadow:0 8px 18px rgba(243,156,18,0.18)}
-.btn.ghost{background:transparent;border:1px solid rgba(20,48,58,0.06);color:var(--green)}
 
-.hero-card{width:340px;flex-shrink:0;border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 10px 30px rgba(16,24,40,0.08);padding:8px}
-.hero-card img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* ABOUT */
-.about{padding:3rem 0}
-.about-grid{display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:center}
-.about-image img{width:100%;border-radius:12px;display:block;object-fit:cover}
-
-/* PRODUCTS */
-.section-title{text-align:center;font-family:"Playfair Display";font-size:1.6rem;margin-bottom:1rem}
-.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:1.1rem}
-.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(16,24,40,0.06);display:flex;flex-direction:column}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-body{padding:1rem;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.card h3{margin:.2rem 0 .6rem;font-size:1.05rem}
-.card p{color:var(--muted);font-size:.95rem;margin:0 0 .8rem}
-.card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-
-/* Footer */
-.site-footer{background:linear-gradient(180deg,#fff8f0,#fff1e0);padding:2.2rem 0;border-top:1px solid rgba(16,24,40,0.03)}
-.footer-inner{display:flex;gap:2rem;justify-content:space-between;align-items:flex-start}
-.footer-col h4{margin:0 0 .6rem}
-.footer-bottom{padding:0.8rem 0;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(16,24,40,0.02)}
-
-/* small */
-.small{padding:.35rem .6rem;border-radius:8px;font-weight:700}
-.price{font-weight:700;color:var(--accent-dark)}
-
-/* responsive */
-@media (max-width:1000px){
-  .product-grid{grid-template-columns:repeat(2,1fr)}
-  .about-grid{grid-template-columns:1fr}
-  .hero-card{display:none}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
-@media (max-width:700px){
-  .nav-list{display:none}
-  .menu-toggle{display:inline-block}
-  .hero{min-height:420px;padding:2rem 0}
-  .hero-text h1{font-size:1.9rem}
-  .header-inner{padding:0.6rem 0}
-  .product-grid{grid-template-columns:1fr}
-  .container{width:94%}
+
+.hero-content .btn {
+  padding: 12px 24px;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
 }
+
+.hero-content .btn:hover {
+  background-color: #21867a;
+}
+
+.product-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 25px;
+  flex-wrap: wrap;
+  background: #fafafa;
+  padding: 60px 40px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  flex: 1 1 300px;
+  max-width: 360px;
+  text-align: center;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-card h3 {
+  font-size: 1.4rem;
+  color: #e63946;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.product-card ul {
+  list-style: none;
+  color: #444;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.product-card ul li {
+  margin: 6px 0;
+  position: relative;
+  padding-left: 18px;
+}
+
+.product-card ul li::before {
+  content: "→";
+  color: #2a9d8f;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .product-showcase {
+    flex-direction: column;
+    align-items: center;
+    visibility: visible;
+  }
+  .product-card {
+    max-width: 90%;
+  }
+}
+
+footer {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 80px 20px;
+  font-size: 14px;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 10px;
+}
+
+.footer-col p {
+  margin: 10px 0;
+}
+
